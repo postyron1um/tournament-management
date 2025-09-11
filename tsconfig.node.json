@@ -1,0 +1,21 @@
+{
+  "extends": ["./tsconfig.strict.json", "@tsconfig/node22/tsconfig.json"],
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*",
+    "eslint.config.*"
+, "configs/vite.config.ts"  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // Специфичные для Node.js настройки
+    "types": ["node"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
+  }
+}
+

@@ -1,0 +1,125 @@
+{
+  "compilerOptions": {
+    // === СТРОГИЕ ПРАВИЛА TYPESCRIPT ===
+    "types": ["vite/client"],
+    // strict: true - включает все строгие проверки TypeScript
+    "strict": true,
+
+    // noImplicitAny: true - запрещает неявное использование типа 'any'
+    // Пример: function test(param) {} - будет ошибка, нужно function test(param: string) {}
+    "noImplicitAny": true,
+
+    // noImplicitReturns: true - требует явного return во всех путях функции
+    // Пример: function test(x: number) { if (x > 0) return x; } - ошибка, нужен else return 0
+    "noImplicitReturns": true,
+
+    // noImplicitThis: true - запрещает неявное использование 'this' с типом 'any'
+    // Пример: function test() { return this.value; } - ошибка, нужен this: { value: string }
+    "noImplicitThis": true,
+
+    // noUnusedLocals: true - проверяет неиспользуемые локальные переменные
+    // Пример: let x = 5; console.log('hello'); - ошибка, x не используется
+    "noUnusedLocals": true,
+
+    // noUnusedParameters: true - проверяет неиспользуемые параметры функции
+    // Пример: function test(x: string, y: number) { console.log(x); } - ошибка, y не используется
+    "noUnusedParameters": true,
+
+    // exactOptionalPropertyTypes: true - строгая типизация опциональных свойств
+    // Пример: interface Test { prop?: string } - prop может быть string | undefined, но не null
+    "exactOptionalPropertyTypes": true,
+
+    // noImplicitOverride: true - требует явного ключевого слова override при переопределении
+    // Пример: class Child extends Parent { override method() {} }
+    "noImplicitOverride": true,
+
+    // noPropertyAccessFromIndexSignature: true - запрещает доступ к свойствам через индексную сигнатуру
+    // Пример: interface Test { [key: string]: any; } obj.prop - ошибка, нужно obj['prop']
+    "noPropertyAccessFromIndexSignature": true,
+
+    // noUncheckedIndexedAccess: true - добавляет undefined к результату индексации
+    // Пример: const arr = ['a', 'b']; arr[5] - тип будет string | undefined
+    "noUncheckedIndexedAccess": true,
+
+    // === ДОПОЛНИТЕЛЬНЫЕ ПРОВЕРКИ ===
+
+    // allowUnreachableCode: false - запрещает недостижимый код
+    // Пример: return x; console.log('never'); - ошибка, код после return недостижим
+    "allowUnreachableCode": false,
+
+    // allowUnusedLabels: false - запрещает неиспользуемые метки
+    // Пример: label: for (let i = 0; i < 5; i++) break; - ошибка, метка не используется
+    "allowUnusedLabels": false,
+
+    // noFallthroughCasesInSwitch: true - требует break/return в каждом case
+    // Пример: switch(x) { case 1: console.log('1'); case 2: console.log('2'); } - ошибка
+    "noFallthroughCasesInSwitch": true,
+
+    // noImplicitUseStrict: false - разрешает неявное использование 'use strict'
+    "noImplicitUseStrict": false,
+
+    // === ПРОВЕРКА ТИПОВ ===
+
+    // skipLibCheck: true - пропускает проверку типов в .d.ts файлах (ускоряет компиляцию)
+    "skipLibCheck": true,
+
+    // forceConsistentCasingInFileNames: true - требует консистентного регистра в именах файлов
+    // Пример: import './Component.vue' и './component.vue' - разные файлы
+    "forceConsistentCasingInFileNames": true,
+
+    // === НАСТРОЙКИ МОДУЛЕЙ ===
+
+    // module: "ESNext" - использует современные ES модули (import/export)
+    "module": "ESNext",
+
+    // moduleResolution: "Bundler" - разрешение модулей для современных бандлеров (Vite, Webpack 5)
+    "moduleResolution": "Bundler",
+
+    // allowImportingTsExtensions: true - разрешает импорт .ts файлов с расширениями
+    // Пример: import './file.ts' вместо import './file'
+    "allowImportingTsExtensions": true,
+
+    // verbatimModuleSyntax: true - строгий синтаксис модулей, требует явных import/export
+    // Пример: import type { Type } from './types' - type обязателен для типов
+    "verbatimModuleSyntax": true,
+
+    // === ЦЕЛЬ КОМПИЛЯЦИИ ===
+
+    // target: "ESNext" - компилирует в современный JavaScript (ES2022+)
+    "target": "ESNext",
+
+    // === ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ===
+
+    // esModuleInterop: true - улучшает совместимость с CommonJS модулями
+    // Пример: import React from 'react' вместо import * as React from 'react'
+    "esModuleInterop": true,
+
+    // allowSyntheticDefaultImports: true - разрешает синтетические default импорты
+    // Пример: import React from 'react' для модулей без default export
+    "allowSyntheticDefaultImports": true,
+
+    // resolveJsonModule: true - разрешает импорт JSON файлов как модулей
+    // Пример: import data from './data.json'
+    "resolveJsonModule": true,
+
+    // isolatedModules: true - каждый файл компилируется независимо (требуется для Vite)
+    "isolatedModules": true,
+
+    // declaration: false - не генерирует .d.ts файлы (не нужно для приложений)
+    "declaration": false,
+
+    // declarationMap: false - не генерирует source maps для .d.ts файлов
+    "declarationMap": false,
+
+    // sourceMap: true - генерирует source maps для отладки
+    "sourceMap": true,
+
+    // removeComments: false - сохраняет комментарии в скомпилированном коде
+    "removeComments": false,
+
+    // noEmit: true - не генерирует JavaScript файлы (только проверка типов)
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true
+  }
+}
