@@ -114,7 +114,8 @@
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --text-sm: 0.765625rem;
+  --text-xs: 0.765625rem;
+  --text-sm: 0.875rem;
   @keyframes accordion-down {
     from {
       height: 0;

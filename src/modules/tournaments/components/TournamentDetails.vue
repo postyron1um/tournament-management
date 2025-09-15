@@ -2,9 +2,11 @@
   <div v-if="tournament">
     <TournamentHeader :tournament="tournament" />
     <TournamentLiveMatches />
-    <div class="max-w-7xl mx-auto px-6 py-8">
-      <Tabs default-value="overview" class="space-y-6">
-        <TabsList class="grid w-full grid-cols-4 bg-white border border-gray-200 p-0 text-sm! font-medium">
+    <div class="max-w-full mx-auto px-6 py-8">
+      <Tabs default-value="overview" class="space-y-6" @update:model-value="handleTabChange">
+        <TabsList
+          class="grid w-full grid-cols-4 bg-white border border-gray-200 p-0 text-xs! font-medium"
+        >
           <TabsTrigger
             value="overview"
             class="data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700"
@@ -31,8 +33,18 @@
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="overview"> overview </TabsContent>
-        <TabsContent value="standings"> standings </TabsContent>
+        <TabsContent value="overview">
+          <router-view />
+        </TabsContent>
+        <TabsContent value="standings">
+          <router-view />
+        </TabsContent>
+        <TabsContent value="matches">
+          <router-view />
+        </TabsContent>
+        <TabsContent value="teams">
+          <router-view />
+        </TabsContent>
       </Tabs>
     </div>
   </div>
@@ -49,10 +61,7 @@ import Button from '@/core/components/ui/button/Button.vue'
 import { type ITournamentDTO } from '../types/tournament.dto'
 import TournamentHeader from './TournamentHeader.vue'
 import TournamentLiveMatches from './TournamentLiveMatches.vue'
-import Tabs from '@/core/components/ui/tabs/Tabs.vue'
-import TabsList from '@/core/components/ui/tabs/TabsList.vue'
-import TabsTrigger from '@/core/components/ui/tabs/TabsTrigger.vue'
-import TabsContent from '@/core/components/ui/tabs/TabsContent.vue'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/core/components/ui/tabs'
 
 const route = useRoute()
 const tournamentId = route.params['id']
@@ -82,9 +91,22 @@ function getTournamentDetails(): ITournamentDTO {
   }
 }
 
+const userRole = ref<'admin' | 'participant'>('participant')
+
+const handleTabChange = (tab: string | number) => {
+  // Тут должна быть проверка роли и по ней переадресация на страницу
+
+  if (userRole.value === 'admin') {
+    router.push(`/admin/tournaments/${tournamentId}/${tab}`)
+  } else if (userRole.value === 'participant') {
+    router.push(`/user/tournaments/${tournamentId}/${tab}`)
+  } else {
+    router.push(`/tournaments/${tournamentId}/${tab}`)
+  }
+}
+
 onMounted(() => {
   tournament.value = getTournamentDetails()
-  console.log(tournament.value)
 })
 </script>
 

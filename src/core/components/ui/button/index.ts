@@ -23,8 +23,8 @@ export const buttonVariants = cva(
         gradient: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white',
       },
       size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3 text-sm',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 text-sm!',
+        default: 'h-9 px-4 py-2 has-[>svg]:px-3 text-xs',
+        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 text-xs!',
         lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
 
         xs: 'h-6 px-2 text-xs',

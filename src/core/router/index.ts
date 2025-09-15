@@ -9,12 +9,56 @@ const router = createRouter({
     },
 
     {
+      path: '/user',
+      redirect: '/user/tournaments',
+      children: [
+        {
+          path: '',
+          redirect: '/user/main',
+        },
+        {
+          path: 'main',
+          component: () => import('@/modules/tournaments/components/MainPage.vue'),
+        },
+        {
+          path: 'tournaments',
+          component: () => import('@/modules/tournaments/components/TournamentListLK.vue'),
+        },
+
+        {
+          path: 'my-tournaments',
+          component: () => import('@/modules/tournaments/components/MyTournaments.vue'),
+        },
+      ],
+    },
+
+    {
       path: '/tournaments',
       component: () => import('@/pages/TournamentListPage.vue'),
     },
     {
-      path: '/tournaments/:id',
+      path: '/user/tournaments/:id/:tab?',
       component: () => import('@/modules/tournaments/components/TournamentDetails.vue'),
+      redirect: (to) => `${to.path}/overview`,
+      children: [
+        {
+          path: 'overview',
+          name: 'tournament-overview',
+          component: () => import('@/modules/tournaments/components/TournamentOverview.vue'),
+        },
+        {
+          path: 'standings',
+          component: () => import('@/modules/tournaments/components/TournamentStandings.vue'),
+        },
+        {
+          path: 'matches',
+          component: () => import('@/modules/tournaments/components/TournamentMatches.vue'),
+        },
+        {
+          path: 'teams',
+          component: () => import('@/modules/tournaments/components/TournamentTeams.vue'),
+        },
+      ],
     },
   ],
   scrollBehavior(to, from, savedPosition) {

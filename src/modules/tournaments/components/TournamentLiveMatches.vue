@@ -21,7 +21,7 @@
               >
                 T1
               </div>
-              <div class="text-xs sm:text-sm text-gray-900 font-medium">Very Long Team Name</div>
+              <div class="text-xs sm:text-xs text-gray-900 font-medium">Very Long Team Name</div>
             </div>
 
             <!-- Счет -->
@@ -32,11 +32,11 @@
             <!-- Команда 2 -->
             <div class="text-center min-w-0">
               <div
-                class="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 text-white rounded-full flex items-center justify-center mb-1 sm:mb-2 mx-auto text-xs sm:text-sm"
+                class="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 text-white rounded-full flex items-center justify-center mb-1 sm:mb-2 mx-auto text-xs sm:text-xs"
               >
                 T2
               </div>
-              <div class="text-xs sm:text-sm text-gray-900 font-medium">
+              <div class="text-xs sm:text-xs text-gray-900 font-medium">
                 Another Very Long Team Name
               </div>
             </div>

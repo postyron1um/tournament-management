@@ -25,12 +25,12 @@
 
                 <div class="flex gap-1">
                   <MapPin class="w-4 h-4 text-gray-600" />
-                  <p class="text-sm text-gray-600">{{ tournament?.location }}</p>
+                  <p class="text-xs text-gray-600">{{ tournament?.location }}</p>
                 </div>
 
                 <div class="flex gap-1">
                   <Calendar class="w-4 h-4 text-gray-600" />
-                  <p class="text-sm text-gray-600">
+                  <p class="text-xs text-gray-600">
                     {{ tournament?.dateStart }} - {{ tournament?.dateEnd }}
                   </p>
                 </div>

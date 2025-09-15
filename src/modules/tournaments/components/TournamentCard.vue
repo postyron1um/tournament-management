@@ -11,7 +11,7 @@
         <ChevronRight class="w-4 h-4 text-gray-500" />
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1">
         <Badge variant="outline" class="bg-orange-50 text-orange-700 border-orange-200 mr-2">{{
           tournament.sportType
         }}</Badge>
@@ -28,8 +28,8 @@
           <div class="flex items-center gap-2">
             <Calendar class="w-4 h-4 text-blue-600" />
             <div>
-              <p class="text-sm text-gray-900 font-medium">Продолжительность</p>
-              <p class="text-sm text-gray-600">
+              <p class="text-xs text-gray-900 font-medium">Продолжительность</p>
+              <p class="text-xs text-gray-600">
                 {{ tournament.dateStart }} - {{ tournament.dateEnd }}
               </p>
             </div>
@@ -37,21 +37,21 @@
           <div class="flex items-center gap-2">
             <MapPin class="w-4 h-4 text-blue-600" />
             <div>
-              <p class="text-sm text-gray-900 font-medium">Локация</p>
-              <p class="text-sm text-gray-600">{{ tournament.location }}</p>
+              <p class="text-xs text-gray-900 font-medium">Локация</p>
+              <p class="text-xs text-gray-600">{{ tournament.location }}</p>
             </div>
           </div>
         </div>
         <div class="flex gap-4 items-center">
           <div class="flex items-center gap-2">
             <Users class="w-4 h-4 text-blue-600" />
-            <span class="text-sm text-gray-900 font-medium">
+            <span class="text-xs text-gray-900 font-medium">
               {{ tournament.teamsCount }} Команд</span
             >
           </div>
           <div class="flex items-center gap-2">
             <Trophy class="w-4 h-4 text-gray-500" />
-            <span class="text-sm text-gray-600 font-medium">
+            <span class="text-xs text-gray-600 font-medium">
               {{ tournament.matchesCount }} матчей</span
             >
           </div>
@@ -59,8 +59,8 @@
         </div>
         <div class="mb-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
           <div class="flex items-center gap-2 justify-between mb-2!">
-            <span class="text-sm text-blue-800 font-medium">Регистрация открыта</span>
-            <span class="text-sm text-blue-600 font-medium"
+            <span class="text-xs text-blue-800 font-medium">Регистрация открыта</span>
+            <span class="text-xs text-blue-600 font-medium"
               >{{ tournament.registeredCount }}/{{ tournament.maxTeams }}</span
             >
           </div>
@@ -68,7 +68,7 @@
             <div class="bg-blue-600 rounded-full h-2" style="width: 62.5%"></div>
           </div>
         </div>
-        <div class="bg-green-50 p-2 text-sm rounded border border-green-200">
+        <div class="bg-green-50 p-2 text-xs rounded border border-green-200">
           <p class="text-green-700 font-medium">Взнос: {{ tournament.fee }}$</p>
         </div>
       </div>
