@@ -22,8 +22,8 @@
         </CardTitle>
         <CardDescription> Ваши ближайшие игры </CardDescription>
       </CardHeader>
-        <CardContent>
-          <div class="space-y-4">
+      <CardContent>
+        <div class="space-y-4">
           <div
             v-for="match in upcomingMatches"
             :key="match.id"
@@ -67,7 +67,7 @@
         <CardDescription> Ваши недавние игры </CardDescription>
       </CardHeader>
       <CardContent>
-        <div class="space-y-4">
+        <div class="space-y-4" v-if="lastResults.length > 0">
           <div
             v-for="match in lastResults"
             :key="match.id"
@@ -101,6 +101,10 @@
               </div>
             </div>
           </div>
+        </div>
+        <div v-if="lastResults.length === 0" class="text-center py-6">
+          <Clock class="w-12 h-12 text-gray-300 mx-auto mb-2" />
+          <p class="text-gray-600">Нет недавних результатов</p>
         </div>
       </CardContent>
     </Card>
@@ -175,8 +179,18 @@ import {
   CardTitle,
 } from '@/core/components/ui/card'
 import StatCard from '@/core/components/ui/StatCard.vue'
-import { Activity, Clock, MapPin, Medal, Target, TrendingUp, Trophy } from 'lucide-vue-next'
+import {
+  Activity,
+  ChevronRight,
+  Clock,
+  MapPin,
+  Medal,
+  Target,
+  TrendingUp,
+  Trophy,
+} from 'lucide-vue-next'
 import type { TTournamenetStatus } from '../types/tournament.dto'
+import Button from '@/core/components/ui/button/Button.vue'
 
 const router = useRouter()
 
@@ -211,6 +225,7 @@ const upcomingMatches = ref<Match[]>([
   },
 ])
 
+
 const lastResults = ref<Match[]>([
   {
     id: 1,
@@ -231,8 +246,10 @@ const lastResults = ref<Match[]>([
     status: 'completed' as TTournamenetStatus,
     date: '2024-01-15',
     result: 'win' as TTournamenetStatus,
-        },
+  },
 ])
+
+
 
 // Исправленные методы
 const getResultBadgeProps = (result: string) => {
@@ -300,7 +317,6 @@ const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('ru-RU')
 }
 
-
 const handleFindTournaments = () => {
   router.push('/tournaments')
 }
@@ -308,8 +324,6 @@ const handleFindTournaments = () => {
 const handleMatchClick = (match: Match) => {
   router.push(`/user/tournaments/${match.id}`)
 }
-
-
 </script>
 
 <style scoped></style>

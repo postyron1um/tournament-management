@@ -178,7 +178,7 @@ const userMenuItems = computed(() => {
       },
       {
         title: 'Результаты',
-        url: '/results',
+        url: '/user/my-results',
         icon: BarChart,
       },
       {
